@@ -78,7 +78,7 @@ python3 main.py --base ./configs/stable-diffusion/v1-finetune_style.yaml -t --ac
 
 ### Interactive Terminal
 ```bash
-python ./scripts/dream.py 
+python3 ./scripts/dream.py 
 
 ```
 add
@@ -87,6 +87,7 @@ add
 ```
 to load the result of your finetuning
 
+Note: use --full_precision for 1x< gpus
 
 ### More commands
 
