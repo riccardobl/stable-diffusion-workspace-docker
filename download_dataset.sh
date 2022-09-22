@@ -2,7 +2,7 @@
 collection="$1"
 if [ "$RES" = "" ];
 then
-	export RES="256x256"
+	export RES="512x512"
 fi
 mkdir -P ~/datasets
 python3 ~/pinterest-downloader/pinterest-downloader.py $collection -io -d ~/datasets
