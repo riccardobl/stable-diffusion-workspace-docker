@@ -38,4 +38,7 @@ VOLUME /root/InvokeAI/outputs
 VOLUME /root/InvokeAI/logs
 VOLUME /root/datasets
 VOLUME /root/models
+WORKDIR /root
 ENTRYPOINT /entrypoint.sh
+
+
