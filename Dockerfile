@@ -85,6 +85,8 @@ RUN chmod +x /bin/download_dataset.sh
 USER nonroot 
 VOLUME /data
 WORKDIR /home/nonroot
+
+EXPOSE 7860
 ENTRYPOINT /entrypoint.sh
 
 
