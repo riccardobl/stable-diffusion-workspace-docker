@@ -1,0 +1,4 @@
+colorama
+lxml
+requests
+termcolor
