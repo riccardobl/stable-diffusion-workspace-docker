@@ -4,7 +4,8 @@ cd ~
 mkdir -p /data/training 
 mkdir -p /data/outputs 
 mkdir -p /data/models 
-mkdir -p /data/datasets 
+mkdir -p /data/datasets
+mkdir -p /data/models/custom
 if [ ! -f /models/model.ckpt ];
 then
 	wget --http-user="$HUGGINGFACE_USER" --http-password="$HUGGINGFACE_PASSWORD" \
