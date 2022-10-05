@@ -15,7 +15,7 @@ mkdir -p /data \
 
 RUN  \
 apt update  \
-&&apt install git wget nano screen libglib2.0-0 python3 libsm6 imagemagick libxrender1 python3-pip libglu1-mesa libxi-dev libxmu-dev libglu1-mesa-dev screen -y 
+&&apt install git wget aria2 nano screen libglib2.0-0 python3 libsm6 imagemagick libxrender1 python3-pip libglu1-mesa libxi-dev libxmu-dev libglu1-mesa-dev screen -y 
 
 
 USER nonroot
@@ -78,7 +78,6 @@ cd ~ \
 RUN echo "conda activate ldm" >> ~/.bashrc
 
 USER root
-RUN apt install aria2
 COPY entrypoint.sh /entrypoint.sh
 COPY download_dataset.sh /bin/download_dataset.sh
 RUN chmod +x /entrypoint.sh
