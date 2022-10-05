@@ -78,6 +78,7 @@ cd ~ \
 RUN echo "conda activate ldm" >> ~/.bashrc
 
 USER root
+RUN apt install aria2
 COPY entrypoint.sh /entrypoint.sh
 COPY download_dataset.sh /bin/download_dataset.sh
 RUN chmod +x /entrypoint.sh
