@@ -57,7 +57,7 @@ COPY pinterest-downloader /home/nonroot/pinterest-downloader
 RUN \
 cd ~  \
 &&~/anaconda3/bin/conda init bash  \
-&&eval "$(~/anaconda3/bin/conda shell.bash \
+&&eval "$(~/anaconda3/bin/conda shell.bash hook)"  \
 &&conda create -n ldm python=3 \
 &&echo "conda activate ldm" >> ~/.bashrc
 
