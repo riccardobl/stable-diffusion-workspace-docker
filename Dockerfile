@@ -33,7 +33,7 @@ cd /tmp  \
 &&git clone https://github.com/invoke-ai/InvokeAI.git  \
 &&rm -Rf ./stable-diffusion  \
 &&cd InvokeAI \
-&&conda env create -f environment.yaml  \
+&&conda env create -f environment.yml  \
 &&conda activate ldm  \
 &&conda install pytorch==1.11.0 torchvision==0.12.0 cudatoolkit=11.3 -c pytorch && conda clean -a -y  \
 &&ln -s /data/models models/ldm/stable-diffusion-v1  \
