@@ -34,7 +34,7 @@ cd /tmp  \
 &&rm -Rf ./stable-diffusion  \
 &&cd InvokeAI \
 &&conda env create -f environment.yml  \
-&&conda activate ldm  \
+&&conda activate invokeai  \
 &&conda install pytorch==1.11.0 torchvision==0.12.0 cudatoolkit=11.3 -c pytorch && conda clean -a -y  \
 &&ln -s /data/models models/ldm/stable-diffusion-v1  \
 &&ln -s /data/training logs  \
@@ -57,12 +57,17 @@ COPY pinterest-downloader /home/nonroot/pinterest-downloader
 RUN \
 cd ~  \
 &&~/anaconda3/bin/conda init bash  \
+&&eval "$(~/anaconda3/bin/conda shell.bash \
+&&conda create -n ldm python=3 \
+&&echo "conda activate ldm" >> ~/.bashrc
+
+RUN \
+cd ~  \
+&&~/anaconda3/bin/conda init bash  \
 &&eval "$(~/anaconda3/bin/conda shell.bash hook)"  \
 &&cd pinterest-downloader  \
 &&conda activate ldm  \
 &&python3 -m pip install -r requirements.txt 
-
-
 
 # WebUI
 RUN \
@@ -75,7 +80,7 @@ cd ~ \
 
 
 
-RUN echo "conda activate ldm" >> ~/.bashrc
+
 
 USER root
 COPY entrypoint.sh /entrypoint.sh
