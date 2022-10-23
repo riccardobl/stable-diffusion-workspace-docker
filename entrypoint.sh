@@ -34,6 +34,6 @@ python3 scripts/preload_models.py
 
 
 cd ~/stable-diffusion-webui
-screen ./webui.sh
+./webui.sh
 
 bash -c "while true; do sleep 1000;done"
