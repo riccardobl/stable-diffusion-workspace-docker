@@ -57,7 +57,10 @@ cd ~  \
 &&~/anaconda3/bin/conda init bash  \
 &&eval "$(~/anaconda3/bin/conda shell.bash hook)"  \
 &&conda create -n ldm python=3.10 \
-&&echo "conda activate ldm" >> ~/.bashrc
+&&echo "conda activate ldm" >> ~/.bashrc \
+&&conda activate ldm \
+&&python3 -m ensurepip \
+&&python3 -m pip install --upgrade pip
 
 # Dataset downloader
 COPY pinterest-downloader /home/nonroot/pinterest-downloader
