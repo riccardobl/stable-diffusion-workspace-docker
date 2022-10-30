@@ -51,15 +51,16 @@ cd /tmp  \
 # && python3 -m pip install -r requirements.txt 
 
 
-# Dataset downloader
-COPY pinterest-downloader /home/nonroot/pinterest-downloader
 
 RUN \
 cd ~  \
 &&~/anaconda3/bin/conda init bash  \
 &&eval "$(~/anaconda3/bin/conda shell.bash hook)"  \
-&&conda create -n ldm python=3 \
+&&conda create -n ldm python=3.10 \
 &&echo "conda activate ldm" >> ~/.bashrc
+
+# Dataset downloader
+COPY pinterest-downloader /home/nonroot/pinterest-downloader
 
 RUN \
 cd ~  \
@@ -71,12 +72,15 @@ cd ~  \
 
 # WebUI
 RUN \
-cd ~ \ 
+cd ~  \
+&&~/anaconda3/bin/conda init bash  \
+&&eval "$(~/anaconda3/bin/conda shell.bash hook)"  \
 &&git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git \
 &&cd stable-diffusion-webui \
+&&python3 -m pip install -r requirements.txt \
 &&rm -Rvf models \
 &&ln -s /data/models models \
-&&echo 'export COMMANDLINE_ARGS="--listen  --embeddings-dir /data/models/custom  --gfpgan-model  /data/models/GFPGAN/GFPGANv1.3.pth  --esrgan-models-path /data/models/ESRGAN/"' >> webui-user.sh
+&&echo 'export COMMANDLINE_ARGS="--listen  --api --embeddings-dir /data/models/custom"' >> webui-user.sh
 
 
 
